@@ -35,6 +35,8 @@ jobs:
         run: echo $GHCR_TOKEN | docker login ghcr.io -u apehkone --password-stdin
 
       - name: Push image
+        env:
+          GHCR_TOKEN: ${{secrets.GHCR_TOKEN}}
         run: |
           IMAGE_ID=ghcr.io/${{ github.repository }}/$IMAGE_NAME
 
