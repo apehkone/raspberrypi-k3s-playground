@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k3s-playground
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: k3s-playground
+  template:
+    metadata:
+      labels:
+        app: k3s-playground
+    spec:
+      containers:
+        - image: ghcr.io/apehkone/raspberrypi-k3s-playground/k3s-playground:latest
+          name: k3s-playground
+          securityContext:
+            privileged: true
