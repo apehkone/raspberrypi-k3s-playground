@@ -24,6 +24,20 @@ WORKDIR /app
 COPY ./src/requirements.txt ./
 RUN pip install -U --no-cache-dir -r requirements.txt
 
+####################################################################################################
+# Robert test
+RUN  apt-get update && \
+ apt-get install -y curl gnupg2
+
+RUN gpg --keyserver keys.gnupg.net --recv-key 82B129927FA3303E && \
+ gpg -a --export 82B129927FA3303E | apt-key add -
+
+RUN echo 'deb http://archive.raspberrypi.org/debian stretch main' >> /etc/apt/sources.list && \
+ apt-get update && \
+ apt-get install -y sense-hat
+
+####################################################################################################
+
 # Trimmed down app container
 FROM balenalib/raspberrypi4-64-debian-python:3.7.3-stretch-build as app
 # Extra python env
