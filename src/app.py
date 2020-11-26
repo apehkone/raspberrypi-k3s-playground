@@ -1,12 +1,11 @@
 from sense_hat import SenseHat
 
+red = (255, 0, 0)
+blue = (0, 0, 255)
+
 sense = SenseHat()
 
 sense.show_message("How cool is this?", text_colour = red)
-
-
-red = (255, 0, 0)
-blue = (0, 0, 255)
 
 while True:
     temp = sense.temp
