@@ -1,3 +1,7 @@
+# K3S with Raspberry PI # 
+
+The purpose of this repository is to demonstrate how to setup Raspberry PI 4 with K3S and then import the cluster to Rancher. 
+
 ## Prepare Raspberry PI for K3S ##
 
 1) Download a 64 bit version of Raspberry PI OS. It's still in beta stage, but can be downloaded here: https://downloads.raspberrypi.org/raspios_arm64/images/
@@ -45,6 +49,21 @@ rancher/rancher-agent:v2.5.1-linux-arm64
 4) Apply the manifest with kubectl apply -f rancher.yml
 
 => Your Raspberry PI should be imported. 
+
+
+## Next Steps ## 
+
+Install Rancher CLI or run kubectl directly from Rancher 
+
+Rancher CLI example 
+
+```bash
+$ rancher kubectl apply -f ./k3s/k3s-playground.yaml
+```
+
+This should create your first deployment! 
+
+
 
 
 
