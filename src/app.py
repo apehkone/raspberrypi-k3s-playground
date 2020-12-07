@@ -1,14 +1,27 @@
 from sense_hat import SenseHat
-from random import randint
-from time import sleep
 
-sense = SenseHat()
+s = SenseHat()
+
+green = (0, 150, 57)
+dark_green = (0, 255, 0)
+nothing = (0, 0, 0)
+
+def nortal():
+    G = green
+    DG = dark_green
+    O = nothing
+    logo = [
+        DG, G, O, O, O, G, DG, G,
+        DG, G, DG, O, O, G, DG, G,
+        DG, G, DG, G, O, G, DG, G,
+        DG, G, DG, G, DG, G, DG, G,
+        DG, G, DG, G, DG, G, DG, G,
+        DG, G, DG, O, DG, G, DG, G,
+        DG, G, DG, O, O, G, DG, G,
+        DG, G, DG, O, O, O, DG, G,
+    ]
+    return logo
+
 
 while True:
-    x = randint(0, 7)
-    y = randint(0, 7)
-    r = randint(0, 255)
-    g = randint(0, 255)
-    b = randint(0, 255)
-    sense.set_pixel(x, y, r, g, b)
-    sleep(0.01)
+    s.set_pixels(nortal())
